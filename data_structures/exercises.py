@@ -87,3 +87,7 @@ print(word_list)
 
 new_text = ' '.join(word_list)
 print(new_text)
+
+
+# exercise 5
+# 
