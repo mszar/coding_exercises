@@ -1,4 +1,4 @@
-# list methods
+#all below exercises are prepared by datacamp team
 
 # exercise 1 
 # remove fruits from basket2 that are present in basket1
@@ -39,3 +39,51 @@ for x in range_x:
         circ_parab[key] = z
 
 print(circ_parab)    
+
+
+# exercise 3
+
+# create caesar cipher - encryption requires two arguments: 
+# text to encrypt and integer key denoting the shift
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+def encrypt(text, key):
+    encrypted_text = ''
+    for char in text.lower():
+        idx = (alphabet.index(char) + key) % len(alphabet)
+        encrypted_text = encrypted_text + alphabet[idx]
+    return encrypted_text
+
+print(encrypt('datacamp',10))
+
+def decrypt(text, key):
+    encrypted_text = ''
+    for char in text.lower():
+        idx = alphabet.index(char) - key
+        encrypted_text = encrypted_text + alphabet[idx]
+    return encrypted_text
+
+
+# exercise 4 
+
+# create word list from the given string
+
+text = 'StRing ObJeCts haVe mANy inTEResting pROPerTies'
+
+word_list = text.split(' ')
+print(word_list)
+
+# every oher word uppercase and lowercase
+
+for i in range(len(word_list)):
+    if i % 2 == 0:
+        word_list[i] = word_list[i].upper()
+    else:
+        word_list[i] = word_list[i].lower()
+print(word_list)
+
+# join the words from new string list
+
+new_text = ' '.join(word_list)
+print(new_text)
