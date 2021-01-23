@@ -1,4 +1,4 @@
-#all below exercises are prepared by datacamp team
+# all below exercises are prepared by datacamp team
 
 # exercise 1 
 # remove fruits from basket2 that are present in basket1
@@ -90,4 +90,45 @@ print(new_text)
 
 
 # exercise 5
-# 
+
+# regular expressions - define a pattern to search for valid temperature
+
+import re
+
+text = "Let's consider the following temperatures using the Celsius scale: +23 C, 0 C, -20.0 C, -2.2 C, -5.65 C, 0.0001 C. To convert them to the Fahrenheit scale you have to multiply the number by 9/5 and add 32 to the result. Therefore, the corresponding temperatures in the Fahrenheit scale will be: +73.4 F, 32 F, -4.0 F, +28.04 F, 21.83 F, +32.00018 F."
+pattern = re.compile(r'[+-]?\d+\.?\d* [CF]')
+print(re.findall(pattern, text))
+
+# create object storing matches using finditer then loop over item properties
+
+matches_storage = re.finditer(pattern, text)
+
+for match in matches_storage:
+    print('Matching sequence: ' + match.group())
+    print('Start index: ' + str(match.start()))
+    print('End index: ' + str(match.end()))
+
+
+# exercise 6 
+
+# prepare regular expression that splits string and prepare 
+# string with name of the movie and director
+
+movies = ['1984, 1984, Michael Radford',
+ 'The Good, the Bad and the Ugly, 1966, Sergio Leone',
+ 'Terminator 2: Judgment Day, 1991, James Cameron',
+ "Harry Potter and the Philosopher's Stone, 2001, Chris Columbus",
+ 'Back to the Future, 1985, Robert Zemeckis',
+ 'No Country for Old Men, 2007, Joel Coen, Ethan Coen']
+
+pattern = re.compile(r', \d+, ')
+
+movies_without_year = []
+
+for movie in movies:
+    split_result = re.split(pattern, movie)
+    movie_and_director = ', '.join(split_result)
+    movies_without_year.append(movie_and_director)
+    
+for movie in movies_without_year:
+    print(movie)
