@@ -86,3 +86,56 @@ def gcd(a,b):
 
 coprimes = [(i, j) for i in list1 
                    for j in list2 if gcd(i, j) == 1]
+
+
+# exercise 5
+
+# combine iterable objects - create a new iterable object, where 
+# each element represents a tuple. Each tuple contains list, len 
+# of this list and longest word within this list
+
+wlist = [['Python', 'creativity', 'universe'], ['interview', 'study', 'job', 'university', 'lecture'], ['task', 'objective', 'aim', 'subject', 'programming', 'test', 'research']]
+
+def get_longest_word(words):
+    longest_word = ''
+    for word in words:
+        if len(word) > len(longest_word):
+            longest_word = word
+    return longest_word
+
+# Create a list of the lengths of each list in wlist
+
+lengths = [len(lists) for lists in wlist]
+
+# Create a list of the longest words in each list in wlist
+
+words = [get_longest_word(word) for word in wlist]
+
+# Combine the resulting data into one iterable object
+
+for item in zip(wlist, lengths, words):
+    print(item)
+
+
+# exercise 6
+
+# Create a list of tuples with lengths and longest words
+
+result = [
+    (len(item), get_longest_word(item)) for item in wlist
+]
+
+lengths, words = zip(*result)
+
+for item in zip(wlist, lengths, words):
+    print(item)
+
+
+# exercise 7
+
+# Create a dataframe from the wlist variable
+# Create a list with tuples of the form (word itself, len of word)
+
+word_lenghts = [ (item, len(item)) for items in wlist for item in items]
+
+print(word_lenghts)
