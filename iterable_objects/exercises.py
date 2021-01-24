@@ -2,7 +2,6 @@
 
 
 # exercise 1 
-
 # define the function that create a dictionary from a string where
 # each key # represents a unique # character and the value is list 
 # containg the indices of this letter
@@ -20,7 +19,6 @@ print(retrieve_character_indices('eaeaeaebbbb'))
 
 
 # exercise 2
-
 # list comprehesion - convert the text to lower case and create a word list
 
 import re
@@ -50,7 +48,6 @@ for (key,value) in word_counter.items():
 
 
 # exercise 3
-
 # prime number checker - firstly prepare function which check 
 # if a number is prime 
 
@@ -70,7 +67,6 @@ print(primes)
 
 
 # exercise 4
-
 # greatest common divisor - firstly define function which check 
 # for greatest common divisior
 
@@ -89,7 +85,6 @@ coprimes = [(i, j) for i in list1
 
 
 # exercise 5
-
 # combine iterable objects - create a new iterable object, where 
 # each element represents a tuple. Each tuple contains list, len 
 # of this list and longest word within this list
@@ -118,7 +113,6 @@ for item in zip(wlist, lengths, words):
 
 
 # exercise 6
-
 # Create a list of tuples with lengths and longest words
 
 result = [
@@ -132,7 +126,6 @@ for item in zip(wlist, lengths, words):
 
 
 # exercise 7
-
 # Create a dataframe from the wlist variable
 # Create a list with tuples of the form (word itself, len of word)
 
@@ -153,3 +146,16 @@ result = zip(col_names, [words, lengths])
 data_frame = pd.DataFrame(dict(result))
 print(data_frame)
 
+
+# exercise 8
+# shift the string by a specified number of positions
+
+def shift_string(string, shift):
+    len_string = len(string)
+    for idx in range(0, len_string):
+        yield string[(idx - shift) % len_string]
+
+gen = shift_string('TestDzialania', 3)
+
+string_shifted = ''.join(gen)
+print(string_shifted)
