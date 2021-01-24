@@ -136,6 +136,20 @@ for item in zip(wlist, lengths, words):
 # Create a dataframe from the wlist variable
 # Create a list with tuples of the form (word itself, len of word)
 
+import pandas as pd
 word_lenghts = [ (item, len(item)) for items in wlist for item in items]
 
-print(word_lenghts)
+# Unwrap the word_lengths
+
+words, lengths = zip(*word_lenghts)
+
+# Create a zip object combining column names for the future df
+
+col_names = ['word', 'length']
+result = zip(col_names, [words, lengths])
+
+# Convert the result to a dictionary and build a DataFrame
+
+data_frame = pd.DataFrame(dict(result))
+print(data_frame)
+
